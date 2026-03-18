@@ -1,4 +1,4 @@
-name: Test Secret
+name: Use Secret
 
 on: [push]
 
@@ -7,5 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Show secret
-        run: echo "Secret is ${{ secrets.MY_SECRET_THING }}"
+      - name: Use env
+        env:
+          API_KEY: ${{ secrets.MY_SECRET_THING }}
+        run: echo "Using API key"
